@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+    window.onload=function(){
+       var win=document.getElementsByClassName("lunbo")[0];
+       var imgs=document.getElementsByClassName("img")[0];
+       var cir=document.getElementByClassName(".circle");
+       var num=0;
+       var t=setInterval(move,2000);
+
+       function move(){
+         num++;
+         if(num==imgs.length){
+         	num=0;
+         }
+
+}
+
+
+
+  win.onmouseover=function(){ //移到窗口，轮播停止
+    clearInterval(t);
+  }
+  win.onmouseout=function(){ //移出窗口，轮播
+    clearInterval(t);
+    t=setInterval(move,1000);
+  }
+  //crin按钮 点击效果
+  for(var i=0;i<cri.length;i++){
+    cri[i].index=i;   //保存当前的i
+    cri[i].onclick=function(){
+      num=this.index;   //当前页赋值给Num
+      for(var j=0;j<imgs.length;j++){
+        imgs[j].style.zIndex=3;
+        cri[j].src="./image/newbannerbg.png";
+      }
+   
+    }
+  }
+}
+
+
+	</script>
+	<style>
+       .lunbo{
+          width: 730px;
+          height: 454px;
+          margin: 0 auto;
+          position: relative;
+       }
+       .img{
+          width: 730px;
+          height: 454px;
+          position:absolute;
+
+       }
+       .circle{
+       	width: 10px;
+       	height: 10px;
+
+       }
+	</style>
+</head>
+<body>
+	<div class="lunbo">
+		<a class="img" href="javascript:;"><img src="./image/56e27340Nfaf4293e.jpg"></a>
+		<a class="img" href="javascript:;"><img src="./image/56e687c1N74d7da1f.jpg"></a>
+		<a class="img" href="javascript:;"><img src="./image/56ea62cfNf3dc36fd.jpg"></a>
+		<a class="img" href="javascript:;"><img src="./image/56ea761cN27870376.jpg"></a>
+        <div class="circle"></div>
+	</div>
+</body>
+</html>
