@@ -1,0 +1,77 @@
+<!doctype html>
+<html ng-app="docsTimeDirective">
+  <head>
+    <script src="http://code.angularjs.org/1.2.25/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <style>
+    .bag{
+    	width:20px;
+    	height:20px;
+    	border:1px solid black;
+    	display:inline-block;
+    	margin: 0;
+    	text-align: center;
+    	float: left;
+    	cursor: pointer;
+    }
+    .bag_center{
+    	border-left:0;
+    	border-right: 0; 
+    	cursor: auto;
+    }
+  </style>
+  <body style="margin:100px" ng-controller="Ctrl2">
+    <div>
+      Date format: <input ng-model="format"> <hr/>
+      Current time is: <span my-current-time="format"></span>
+    </div>
+
+    <button ng-click="do_something()" ng-disabled="aaa">Click Me</button>
+    <input onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"><br/>
+
+    <p><input type="text" ng-model="test"></p>
+
+<ul>
+  <li ng-repeat="x in names | filter:test | orderBy:'country'">
+    {{ (x.name | uppercase) + ', ' + x.country }}
+  </li>
+</ul>
+
+<p>{{myUrl}}</p>
+<p>{{theTime}}</p>
+<p>{{number}}</p>
+<p>266de8jinzhishi  {{scale}}</p>
+<select ng-model="selected" ng-options="x.url as x.site for x in xingm">
+   <!-- <option value=""></option> -->
+</select>
+<p>{{selected}}</p>
+
+<button style="float:left" ng-click="toggle()">hide/show</button>
+<div ng-show="showHide" class="bag" ng-click="counts=counts-1">-</div>
+<div ng-show="showHide" class="bag bag_center">{{counts}}</div>
+<div ng-show="showHide" class="bag" ng-click="counts=counts+1">+</div>
+
+<p my-current-time></p>
+
+<form name="myForm" novalidate>
+    <p>yonghuming:<br>
+      <input type="text" name="user" ng-model="user" required>
+      <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+        <span ng-show="myForm.user.$error.required">qing shu ru yong hu ming</span>
+      </span> 
+    </p>
+    <p>youxiang:<br>
+      <input type="email" name="email" ng-model="email" required>
+       <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+         <span ng-show="myForm.email.$error.required">qing shu ru you xiang </span>
+         <span ng-show="myForm.email.$error.email">fei fa de you xiang di zhi</span>
+       </span>
+    </p>
+    <p>
+      <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.email.$invalid">
+    </p>
+</form>
+
+  </body>
+</html>

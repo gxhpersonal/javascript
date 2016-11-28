@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+       .test{
+       	border: 1px solid #000;
+       	height: 100px;
+       	width: 200px;
+       }
+       .selected{
+       	border: 1px solid red;
+       }
+       .input{
+       	display: none;
+       }
+	</style>
+
+	<div class="test">测试点击</div>
+    <div class="input">显示/隐藏</div>
+
+	<script src="jquery.js"></script>
+	<script>
+       $(function(){
+       	$('.test').on('click',function(){
+       		$(this).toggleClass('selected');
+       		$('.input').toggle();
+       	})
+       })
+	</script>
+</body>
+</html>

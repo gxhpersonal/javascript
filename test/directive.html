@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta property="wb:webmaster" content="fb660ef54f488590">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	<title>angular directive</title>
+	<style>
+	body{
+		margin: 0;
+		padding: 0;
+	}
+      img{
+      	display: block;
+      	width:100%;
+      }
+      .membertip{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,.7);
+        width: 100%;
+        height: 100%;
+      }
+	</style>
+</head>
+<body ng-controller="appcontroller">
+    <div><img src="http://cdn.qiniu.app.huizuche.com/huixingapp.jpg" alt=""></div>
+    <div>{{aaa}}</div>
+	<member-tip></member-tip>	
+    
+    <script src="js/angular.js"></script>
+	<script src="js/directive.js"></script>
+</body>
+</html>

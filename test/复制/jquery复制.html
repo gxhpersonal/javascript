@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button id="my-button" data-clipboard-text="Copy me!！！！">复制 </button>
+
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/zeroclipboard/2.2.0/ZeroClipboard.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/zeroclipboard/2.2.0/ZeroClipboard.swf"></script> -->
+    <!-- ZeroClipboard.config( { moviePath: 'http://YOURSERVER/path/ZeroClipboard.swf' } ); -->
+    <script>
+      var client = new ZeroClipboard($("#my-button"),{
+        swfPath: "http://cdn.bootcss.com/zeroclipboard/2.2.0/ZeroClipboard.swf"
+        });
+      client.on('success', function (e) {
+        alert("复制成功");
+    });
+    client.on('error', function (e) {
+        alert("暂不支持，请手动复制");
+    });
+</script>
+</body>
+</html>

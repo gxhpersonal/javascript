@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title></title>
+</head>
+<body>
+	<style>
+		#text{
+			border: none;
+			outline: none;
+			padding-right: 10px;
+			width: 200px;
+		}
+	</style>
+	<input type="text" id="text" readonly="readonly" value="输入内容点击按钮就复制好了">
+	<div id="btn">点击复制</div>
+	<div>技术独觉佛业务均为给攻击方式的女程序</div>
+	<a href="" class="js_copy" data-clipboard-text="绝对是否决饿哦个忘记烦恼都可能不v可能出现">复制文本</a>
+
+	<script src="http://cdn.bootcss.com/clipboard.js/1.5.15/clipboard.min.js"></script>
+	<script>
+		window.onload=function(event){
+			var button=document.getElementById("btn");
+			button.onclick=function(event){
+				document.getElementById("text").select();
+				document.execCommand("copy",false,null);
+			};
+
+			function copyText(obj)  
+			{
+				var rng = document.body.createTextRange();
+				rng.moveToElementText(obj);
+				rng.scrollIntoView();
+				rng.select();
+				rng.execCommand("Copy");
+				rng.collapse(false);
+				alert("复制成功!");
+			}
+
+        //js复制方法，暂时不支持ios
+        var clipboard = new Clipboard('.js_copy');
+        clipboard.on('success', function (e) {
+        	alert("复制成功");
+        });
+        clipboard.on('error', function (e) {
+        	alert("ios暂不支持，请手动复制");
+        });
+    };
+</script>
+
+</body>
+</html>
