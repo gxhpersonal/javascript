@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="number">
+<head>
+	<meta charset="UTF-8">
+	<title>数字</title>
+</head>
+<body ng-controller="numbercontroller">
+	<h1>{{numcount}}</h1>
+
+	<script src="../js/angular.js"></script>
+	<script>
+       var numapp = angular.module('number',[])
+       numapp.controller('numbercontroller',function($scope,$interval){
+       	$scope.numcount = 100;
+       	$interval(function(){
+       $scope.numcount --;
+    },1000);
+       })
+	</script>
+</body>
+</html>
