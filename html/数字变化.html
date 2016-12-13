@@ -11,10 +11,21 @@
 	<script>
        var numapp = angular.module('number',[])
        numapp.controller('numbercontroller',function($scope,$interval){
-       	$scope.numcount = 100;
-       	$interval(function(){
-       $scope.numcount --;
-    },1000);
+       	$scope.numcount = 10;
+
+       	var timeout = $interval(function(){$scope.numcount--},1000,5);
+
+this.cancel = function(){
+  if($scope.numcount <= 0){
+    $interval.cancel(timeout);
+  }
+
+}
+        // $scope.$on('$destroy',function(){
+        //   if($scope.numcount <= 0){
+        //     $interval.cancel(timeout)
+        //   }
+        // })
        })
 	</script>
 </body>
